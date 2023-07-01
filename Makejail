@@ -1,0 +1,8 @@
+INCLUDE gh+AppJail-makejails/nginx
+
+COPY usr
+CMD sed -i '' -Ee "s/%%HOSTNAME%%/`hostname`/" /usr/local/etc/nginx/nginx.conf
+CMD mkdir -p /var/cache/packages/freebsd
+CMD chown www:www /var/cache/packages/freebsd
+
+SERVICE nginx reload
