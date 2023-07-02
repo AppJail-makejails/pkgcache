@@ -43,9 +43,9 @@ FreeBSD: {
 ```
 CMD mkdir -p /usr/local/etc/pkg/repos
 COPY Mirror.conf /usr/local/etc/pkg/repos
-
 ```
-In your Makejail it includes the following:
+
+Include the following in your Makejail:
 
 ```
 INCLUDE pkg.makejail
