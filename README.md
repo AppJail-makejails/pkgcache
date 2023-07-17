@@ -51,6 +51,14 @@ Include the following in your Makejail:
 INCLUDE pkg.makejail
 ```
 
+### Arguments
+
+* `pkgcache_worker_processes` (default: `auto`): see [worker\_processes](https://nginx.org/en/docs/ngx_core_module.html#worker_processes).
+* `pkgcache_worker_connections` (default: `1024`): see [worker\_connections](https://nginx.org/en/docs/ngx_core_module.html#worker_connections).
+* `pkgcache_zone_size` (default: `60m`): see [proxy\_cache\_path](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache_path).
+* `pkgcache_inactive` (default: `120m`): see [proxy\_cache\_path](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache_path).
+* `pkgcache_cache_valid` (default: `1d`): see [proxy\_cache\_valid](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache_valid).
+
 ## Acknowledgments
 
 This Makejail was not created without the help of

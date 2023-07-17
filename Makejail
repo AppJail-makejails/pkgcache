@@ -1,8 +1,21 @@
+ARG pkgcache_worker_processes=auto
+ARG pkgcache_worker_connections=1024
+ARG pkgcache_zone_size=60m
+ARG pkgcache_inactive=120m
+ARG pkgcache_cache_valid=1d
+
+OPTION healthcheck="health_cmd:jail:service nginx status" "recover_cmd:jail:service nginx restart"
+
 INCLUDE gh+AppJail-makejails/nginx
 
 COPY usr
-CMD sed -i '' -Ee "s/%%HOSTNAME%%/`hostname`/" /usr/local/etc/nginx/nginx.conf
-CMD mkdir -p /var/cache/packages/freebsd
-CMD chown www:www /var/cache/packages/freebsd
+CMD mkdir -p /var/cache/nginx/pkgcache
+CMD chown www:www /var/cache/nginx/pkgcache
+
+REPLACE /usr/local/etc/nginx/nginx.conf WORKER_PROCESSES ${pkgcache_worker_processes}
+REPLACE /usr/local/etc/nginx/nginx.conf WORKER_CONNECTIONS ${pkgcache_worker_connections}
+REPLACE /usr/local/etc/nginx/nginx.conf ZONE_SIZE ${pkgcache_zone_size}
+REPLACE /usr/local/etc/nginx/nginx.conf INACTIVE ${pkgcache_inactive}
+REPLACE /usr/local/etc/nginx/nginx.conf CACHE_VALID ${pkgcache_cache_valid}
 
 SERVICE nginx reload
