@@ -64,3 +64,7 @@ INCLUDE pkg.makejail
 This Makejail was not created without the help of
 
 * [sko](https://forums.freebsd.org/members/sko.49061/): [Local Cache for PKGs?](https://forums.freebsd.org/threads/local-cache-for-pkgs.60859/#post-365296)
+
+## Notes
+
+1. A healthchecker is used to check and restart NGINX if necessary.
