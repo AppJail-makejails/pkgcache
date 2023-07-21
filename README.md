@@ -14,6 +14,8 @@ docs.nginx.com/nginx/admin-guide/content-cache/content-caching
 appjail makejail -j pkgcache -f gh+AppJail-makejails/pkgcache \
 	-o virtualnet=":pkgcache default" 	
 	-o nat
+# See note #1
+service appjail-health restart
 ```
 
 ### Using the mirror
