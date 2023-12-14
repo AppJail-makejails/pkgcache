@@ -4,6 +4,7 @@ ARG pkgcache_zone_size=60m
 ARG pkgcache_inactive=120m
 ARG pkgcache_cache_valid=1d
 
+OPTION volume=pkgcache-cachedir mountpoint:/var/cache/nginx/pkgcache owner:80 group:80
 OPTION healthcheck="health_cmd:jail:service nginx status" "recover_cmd:jail:service nginx restart"
 
 INCLUDE gh+AppJail-makejails/nginx
