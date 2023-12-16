@@ -61,6 +61,12 @@ INCLUDE pkg.makejail
 * `pkgcache_inactive` (default: `120m`): see [proxy\_cache\_path](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache_path).
 * `pkgcache_cache_valid` (default: `1d`): see [proxy\_cache\_valid](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache_valid).
 
+### Volumes
+
+| Name              | Owner | Group | Perm | Type | Mountpoint                 |
+| ----------------- | ----- | ----- | ---- | ---- | -------------------------- |
+| pkgcache-cachedir | 80    | 80    |  -   |  -   | /var/cache/nginx/pkgcache  |
+
 ## Acknowledgments
 
 This Makejail was not created without the help of
